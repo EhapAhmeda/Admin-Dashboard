@@ -1,0 +1,450 @@
+/* Base Reset & Fonts */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: #ffffff;
+  color: #000000;
+  transition: background 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }   
+  70% { opacity: 1; transform: translateY(0); }   
+  100% { opacity: 0; transform: translateY(-20px); } 
+}
+
+.welcome-text {
+  animation: fadeInOut 3s infinite;
+}
+
+/* Sidebar */
+.menu {
+  background-color: #123;
+  width: 130px;
+  height: 100vh;
+  padding-right: 20px;
+  overflow: hidden;
+  transition: width 0.4s ease;
+  position: fixed;   
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.menu:hover {
+  width: 300px;
+}
+
+.content {
+  padding: 5px;
+  margin-left: 130px; 
+  transition: margin-left 0.4s ease;
+  width: calc(100% - 130px);
+}
+
+.menu:hover + .content {
+  margin-left: 300px;
+  width: calc(100% - 300px);
+}
+
+/* Icons */
+.menu i {
+    font-size: 26px; 
+}
+
+/* Sidebar Lists */
+ul {
+  list-style: none;
+  position: relative;
+  height: 95%;
+}
+ul li a {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  text-decoration: none;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  color: #e0e0e0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+ul li a:hover,
+.data-info .box:hover,
+td:hover {
+  background-color: #005398;
+  color: #ffffff;
+}
+
+.Logout {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 30px 0 0;
+}
+.Logout a {
+  background-color: #a00;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+ul li a i {
+  font-size: 30px;
+  color: #4da6ff;
+  transition: color 0.3s ease;
+}
+ul li a:hover i {
+  color: #fff;
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.profile h2 {
+  font-size: 20px;
+  white-space: nowrap;
+  color: #009afa;
+}
+.img-box {
+  padding-bottom: 50px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #d5edfc;
+  flex-shrink: 0;
+}
+.img-box img {
+  width: 100%;
+}
+
+/* Title Info */
+.title-info {
+  background-color: #360382;
+  padding: 10px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 10px 0;
+  height: 80px;
+  color: #fff;
+  font-size: 40px;
+}
+
+/* Info Boxes */
+.data-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.data-info .box {
+  background-color: #113;
+  height: 150px;
+  flex-basis: calc(33.33% - 10px);
+  flex: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 40px;
+  color: #fff;
+}
+.data-info .box .data {
+  text-align: center;
+}
+.data-info .box .data span {
+  font-size: 30px;
+}
+
+/* Theme Switcher */
+.settings-options {
+  display: none;
+  padding-left: 100px;
+}
+.theme-toggler {
+  display: flex;
+  cursor: pointer;
+}
+.mode-option {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #595757;        
+  opacity: 1;       
+  cursor: pointer;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.mode-option .material-icons-sharp {
+  font-size: 22px;
+  color: #888;
+}
+.mode-option.active {
+  opacity: 1;
+  color: #ffcc00;     
+}
+.mode-option.active .material-icons-sharp {
+  color: #ffcc00;
+}
+
+/* Dark Mode */
+body.dark-theme-variables {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+body.dark-theme-variables .title-info {
+  background-color: #3333aa;
+}
+body.dark-theme-variables .data-info .box {
+  background-color: #1e1e2f;
+  color: #ffffff;
+}
+
+/* DataTables Styles (Users, Posts, Comments) */
+#myTable thead th,
+#postsTable thead th,
+#commentsTable thead th,
+#output thead th {  /* Added Users table */
+  background-color: #3382d6;
+  color: #ffffff;
+  text-align: center;
+}
+
+#myTable tbody td, #postsTable tbody td, #commentsTable tbody td {
+  color: #1e1e2f;
+}
+body.dark-theme-variables #myTable tbody td,
+body.dark-theme-variables #postsTable tbody td,
+body.dark-theme-variables #commentsTable tbody td,
+body.dark-theme-variables #output tbody td {  
+  color: #ffffff;
+  background-color: #1e1e2f;
+}
+
+body.dark-theme-variables #myTable thead th,
+body.dark-theme-variables #postsTable thead th,
+body.dark-theme-variables #commentsTable thead th {
+  background-color: #1e1e2f;
+  color:#ffffff;
+}
+
+/* Dark mode table style */
+body.dark-theme-variables table.dataTable {
+    background-color: #000 !important;       
+    color: #fff !important;                 
+}
+
+/* Search Box & Length Menu */
+.dataTables_filter label, .dataTables_length label {
+  font-weight: bold;
+}
+.dataTables_filter input {
+  border-radius: 6px;
+  padding: 5px;
+}
+.dataTables_length select {
+  border-radius: 6px;
+  padding: 3px;
+}
+
+/* Pagination */
+.dataTables_paginate a {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 3px;
+  text-decoration: none;
+}
+.dataTables_paginate .current {
+  font-weight: bold;
+}
+
+/* Responsive Fixes */
+@media (max-width: 991px) {
+  .menu {
+    width: 80px;
+  }
+  .menu:hover {
+    width: 250px;
+  }
+  .content {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+  .menu:hover + .content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+  }
+  .data-info .box {
+    flex-basis: calc(50% - 10px);
+  }
+}
+@media (max-width: 600px) {
+  .menu {
+    width: 60px;
+  }
+  .menu:hover {
+    width: 200px;
+  }
+  .content {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+  }
+  .menu:hover + .content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+  .data-info {
+    flex-direction: column;
+  }
+  .data-info .box {
+    flex-basis: 100%;
+  }
+}
+
+/* Add to Favorites button */
+.add-fav {
+  background-color: #3382d6;
+    color: #fff;               
+    font-weight: 500;          
+    font-size: 12px;         
+    margin: 10px;         
+    transition: all 0.3s ease; 
+    cursor: pointer;           /* Pointer cursor on hover */
+}
+
+/* Hover effect */
+.add-fav:hover { 
+    background-color: #3333aa;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+}
+
+table.dataTable td, 
+table.dataTable th {
+  border: 1px solid #9c9b9b !important; 
+  padding: 2px;
+}
+
+.dataTables_length select {
+  font-size: 16px;   
+  padding: 6px 12px; 
+  min-width: 60px;   
+  border-radius: 6px; 
+  background-color: #acd4ff;
+}
+
+#myTable th,
+#myTable td {
+  font-size: 15px;   
+  padding: 6px 8px;  
+}
+
+.dataTables_filter input {
+  background-color: #acd4ff;
+}
+
+.dataTables_paginate a {
+  background-color: #acd4ff;
+  color: #000 !important;
+  padding: 5px 12px;
+  margin: 2px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-added {
+    color: rgb(154, 120, 228);        /* Text color */
+  background-color: #ffffff;
+    border-color: rgb(2, 30, 2);     /* Optional: border color */
+}
+
+.btn-added:hover {
+    color: rgb(154, 120, 228);        /* Text color */
+  background-color: #382daa;
+    border-color: rgb(2, 30, 2);     /* Optional: border color */
+}
+
+
+/* Modal Header */
+.modal-header {
+    background-color: #6f42c1; 
+    color: #ffffff;               
+}
+
+/* Modal Body */
+.modal-body {
+    background-color: #d9c1f9; 
+    color: #1a3959;           
+}
+
+.modal-footer .btn-primary {
+    background-color: #3a8ee7; 
+    border-color: #007bff;
+    color: #fff;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #0056b3; 
+    border-color: #004085;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d; 
+    border-color: #6c757d;
+    color: #fff;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+#bar {
+  margin-bottom: 10px;
+  height: 5px;         
+  transition: width 0.3s ease; 
+}
+
+/* Dark Mode Hover for Dashboard Elements */
+body.dark-theme-variables ul li a:hover,
+body.dark-theme-variables .data-info .box:hover,
+body.dark-theme-variables td:hover {
+  background-color: #005398;  
+  color: #ffffff;             
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Hover for All Tables */
+body.dark-theme-variables table.dataTable tbody tr:hover,
+body.dark-theme-variables table.dataTable tbody td:hover,
+body.dark-theme-variables table.dataTable thead th:hover {
+  background-color: #005398 !important;  
+  color: #ffffff !important;             
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode DataTables Headers (Users, Posts, Comments) */
+body.dark-theme-variables #myTable thead th,
+body.dark-theme-variables #postsTable thead th,
+body.dark-theme-variables #commentsTable thead th,
+body.dark-theme-variables #output thead th {  /* Added Users table */
+  background-color: #3382d6;
+   color: #ffffff;           
+  text-align: center;
+}
+
+

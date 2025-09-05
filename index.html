@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="shortcut icon" href="Images/logo.jpg">
+  <!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<link rel="stylesheet" href="JS/sweetalert2.min.css">
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  <!-- Google Fonts & Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS/animate.min.css">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- DataTables CSS -->
+  <link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="CSS/style.css">
+  <style>
+    #dashboardContent { display: none; }
+    #bar { height: 5px; width: 0; background: red; margin-top: 5px; transition: 0.3s; }
+
+    /* Login full screen */
+    #loginForm {
+      background-image: url(Images/Photo1.jpg);
+      background-size: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column; 
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #loginForm form {
+        width: 400px;
+        padding: 30px;
+        background: #b439ca;
+        border-radius: 50px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .welcome-text {
+        font-size: 60px;
+        font-weight: bold; 
+        color: #b300ff;      
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    /* Login Button Style */
+    #loginForm .btn {
+        background: linear-gradient(135deg, #69095b 0%, #143e86 100%);
+        color: #dd5bcb;
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+
+    #loginForm .btn:hover {
+        transform: translateY(-3px);
+        background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+        cursor: pointer;
+    }
+    .slash{
+        gap: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== Login Form ==================== -->
+<div id="loginForm">
+  <div class="welcome-text">
+    Welcome, Let’s Get Started!
+  </div>
+  <form id="myForm">
+    <h2 class="text-center mb-4">Customer Login</h2>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="text" id="email" class="form-control" placeholder="Enter Your Email">
+      <div id="emailMsg" class="form-text text-danger"></div>
+    </div>
+
+    <label for="email" class="form-label">Password</label>
+    <div class="mb-3 input-group slash">
+      <input type="password" id="password" class="form-control" placeholder="Enter Your Password">
+      <button type="button" id="togglePass" class="btn btn-outline-secondary">
+        <i class="fa-solid fa-eye-slash slash"></i>
+      </button>
+    </div>
+    <div id="bar"></div>
+
+    <button type="submit" class="btn w-100" id="saveBtn">Login</button>
+  </form>
+</div>
+
+<!-- ==================== Dashboard ==================== -->
+<div class="menu">
+  <ul>
+    <li class="profile" style="padding-top: 20px;">
+      <div class="img-box"><img src="Images/profile-1.jpg" alt=""></div>
+      <h2 style="padding-left: 16px;">Ehab Ahmed</h2>
+    </li>
+    <li class="active"><a href="#Dashboard"><i class="fas fa-home"></i><p>Dashboard</p></a></li>
+    <li><a href="#Users"><i class="fas fa-user-group"></i><p>Users</p></a></li>
+    <li><a href="#Comments"><i class="fas fa-comments"></i><p>Comments</p></a></li>
+    <li><a href="#Posts"><i class="fas fa-pen"></i><p>Posts</p></a></li>
+    <li><a href="#Favorites"><i class="fas fa-star"></i><p>Favorites</p></a></li>
+    <li class="settings">
+      <a href="#" id="settings-btn"><i class="fas fa-cog"></i><p>Mode Setting</p></a>
+      <div class="settings-options">
+        <div class="theme-toggler">
+          <div class="mode-option active" id="light-mode">
+            <span class="material-icons-sharp">light_mode</span><span>Light</span>
+          </div>
+          <div class="mode-option" id="dark-mode">
+            <span class="material-icons-sharp">dark_mode</span><span>Dark</span>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="Logout"><a href="#"><i class="fas fa-sign-out"></i><p>Logout</p></a></li>
+  </ul>
+</div>
+
+<div class="content" id="dashboardContent">
+  <!-- Dashboard Stats -->
+  <div class="title-info" id="Dashboard"><p>Dashboard</p><i class="fas fa-chart-bar"></i></div>
+  <div class="data-info">
+    <div class="box"><i class="fas fa-user"></i><div class="data"><p>Users</p><span id="user-count"></span></div></div> 
+    <div class="box"><i class="fas fa-pen"></i><div class="data"><p>Posts</p><span id="posts-count"></span></div></div> 
+    <div class="box"><i class="fas fa-table"></i><div class="data"><p>Comments</p><span id="comments-count"></span></div></div> 
+    <div class="box"><i class="fas fa-star"></i><div class="data"><p>Favorites</p><span id="Favorites-count"></span></div></div>
+  </div>
+  <br><br>
+
+  <!-- Users Table -->
+  <div class="title-info" id="Users"><p>Users</p><i class="fas fa-user-group"></i></div>
+  <div id="output"></div> <br><br>
+
+  <!-- Comments Table -->
+  <div class="title-info" id="Comments"><p>Comments</p><i class="fas fa-comments"></i></div>
+  <div id="commentsOutput"></div> <br><br>
+
+  <!-- Posts Table -->
+  <div class="title-info" id="Posts"><p>Posts</p><i class="fas fa-file-alt"></i></div>
+  <div id="postsOutput"></div> <br><br>
+
+  <!-- Favorites Table -->
+  <div class="title-info" id="Favorites"><p>Favorites</p><i class="fas fa-star"></i></div>
+  <div id="FavoritesOutput">
+    <table id="favoritesTable" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>ID</th>
+          <th>Info</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Favorite items will be added dynamically -->
+      </tbody>
+    </table>
+  </div> 
+  <br><br>
+</div>
+
+<!-- ==================== Edit User Modal ==================== -->
+<div class="modal fade" id="editUserModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Edit User</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+      <form id="editUserForm">
+        <input type="hidden" id="editUserId">
+        <div class="mb-3"><label class="form-label">Name</label>
+          <input type="text" id="editUserName" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Email</label>
+          <input type="email" id="editUserEmail" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">City</label>
+          <input type="text" id="editUserCity" class="form-control"></div>
+        <button type="submit" class="btn btn-primary w-100">Save</button>
+      </form>
+    </div>
+  </div></div>
+</div>
+
+<!-- ==================== Edit Comment Modal ==================== -->
+<div class="modal fade" id="editCommentModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Edit Comment</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+      <form id="editCommentForm">
+        <input type="hidden" id="editCommentId">
+        <div class="mb-3"><label class="form-label">Name</label>
+          <input type="text" id="editCommentName" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Email</label>
+          <input type="email" id="editCommentEmail" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Body</label>
+          <textarea id="editCommentBody" class="form-control"></textarea></div>
+        <button type="submit" class="btn btn-primary w-100">Save</button>
+      </form>
+    </div>
+  </div></div>
+</div>
+
+<!-- ==================== Edit Post Modal ==================== -->
+<div class="modal fade" id="editPostModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Edit Post</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+      <form id="editPostForm">
+        <input type="hidden" id="editPostId">
+        <div class="mb-3"><label class="form-label">Title</label>
+          <input type="text" id="editPostTitle" class="form-control"></div>
+        <div class="mb-3"><label class="form-label">Body</label>
+          <textarea id="editPostBody" class="form-control"></textarea></div>
+        <button type="submit" class="btn btn-primary w-100">Save</button>
+      </form>
+    </div>
+  </div></div>
+</div>
+
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap & DataTables JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- External JS -->
+<script src="script.js"></script>
+<script src="JS/Jquery.js"></script>
+
+</body>
+</html>
