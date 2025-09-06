@@ -44,10 +44,24 @@ From there, each module is fully interactive:
   - SweetAlert2 (modern alerts)  
   - Animate.css (animations)  
 
+
 ---
 
-## Screenshots
+# 📷 Screenshots
 
-### Login Page
-<img src="">
+## Login Page
+![Login Page](https://github.com/EhapAhmeda/Admin-Dashboard/blob/24bef5ecb592f0ef026200e440c1f7cbacedbd04/Project_Images/Screenshot%20(64).png)
+
+## Dashboard Overview
+![Dashboard Overview](https://github.com/EhapAhmeda/Admin-Dashboard/blob/24bef5ecb592f0ef026200e440c1f7cbacedbd04/Project_Images/Screenshot%20(70).png)
+![Dashboard Overview](https://github.com/EhapAhmeda/Admin-Dashboard/blob/24bef5ecb592f0ef026200e440c1f7cbacedbd04/Project_Images/Screenshot%20(71).png)
+
+## Users Management
+![Users Management](https://github.com/EhapAhmeda/Admin-Dashboard/blob/24bef5ecb592f0ef026200e440c1f7cbacedbd04/Project_Images/Screenshot%20(68).png)
+## Comment Page
+![Login Page](https://github.com/EhapAhmeda/Admin-Dashboard/blob/24bef5ecb592f0ef026200e440c1f7cbacedbd04/Project_Images/Screenshot%20(73).png)
+
+## Favorite Management
+![Posts Management](https://github.com/EhapAhmeda/Admin-Dashboard/blob/24bef5ecb592f0ef026200e440c1f7cbacedbd04/Project_Images/Screenshot%20(74).png)
+
 
