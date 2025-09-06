@@ -1,6 +1,4 @@
-# Modern Admin Dashboard
-
-Proud to Share My Project!   
+# Modern Admin Dashboard  
 
 I’ve developed a **Modern Admin Dashboard** focused on **functionality, responsiveness, and user experience**.  
 From the moment you log in, every feature is designed to make management smoother, faster, and more engaging.
