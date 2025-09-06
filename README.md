@@ -71,3 +71,8 @@ From there, each module is fully interactive:
 You can view this project on LinkedIn:  
 [Admin Dashboard Project](https://www.linkedin.com/posts/ehab-ahmed-abdelhamid-582b22284_webdevelopment-javascript-bootstrap-activity-7370058888517423104-1Su9?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEU4trIBToedHDddZVg0n-bS3PmKY05QJeY)
 
+# APIs
+
+- **Users:** [https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users)  
+- **Posts:** [https://jsonplaceholder.typicode.com/posts](https://jsonplaceholder.typicode.com/posts)  
+- **Comments:** [https://jsonplaceholder.typicode.com/comments](https://jsonplaceholder.typicode.com/comments)  
