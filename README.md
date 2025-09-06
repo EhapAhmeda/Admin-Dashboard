@@ -47,7 +47,7 @@ From there, each module is fully interactive:
 
 ---
 
-# 📷 Screenshots
+# Screenshots
 
 ## Login Page
 ![Login Page](https://github.com/EhapAhmeda/Admin-Dashboard/blob/24bef5ecb592f0ef026200e440c1f7cbacedbd04/Project_Images/Screenshot%20(64).png)
@@ -64,4 +64,10 @@ From there, each module is fully interactive:
 ## Favorite Management
 ![Posts Management](https://github.com/EhapAhmeda/Admin-Dashboard/blob/24bef5ecb592f0ef026200e440c1f7cbacedbd04/Project_Images/Screenshot%20(74).png)
 
+---
+
+## Project in LinkedIn
+
+You can view this project on LinkedIn:  
+[Admin Dashboard Project](https://www.linkedin.com/posts/ehab-ahmed-abdelhamid-582b22284_webdevelopment-javascript-bootstrap-activity-7370058888517423104-1Su9?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEU4trIBToedHDddZVg0n-bS3PmKY05QJeY)
 
