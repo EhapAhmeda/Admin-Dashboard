@@ -83,6 +83,6 @@ You can view this project on LinkedIn:
 1. Open the project directly in any browser using the live link:  
    [Open Admin Dashboard](https://ehapahmeda.github.io/Admin-Dashboard/)
 2. **Important:** To access the project, you **must use the following credentials**:  
-   - **Email:** `UserEmail@gmail.com`  
+   - **Email:** `UserName@gmail.com`  
    - **Password:** `User@1234`
 
